@@ -1,0 +1,22 @@
+
+{% extends 'base-fullscreen.html' %}
+{% load static %}
+
+{% block content %}
+  <h2>My Tasks</h2>
+
+  {% if tasks %}
+    <ul>
+      {% for task in tasks %}
+        <li>
+          <h3>{{ task.title }}</h3>
+          <p>{{ task.description }}</p>
+          <p><a href="{{ task.link }}" target="_blank">Task Link</a></p>
+          <p>Completed on: {{ task.date_completed }}</p>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>You have no tasks assigned.</p>
+  {% endif %}
+{% endblock %}

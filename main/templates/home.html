@@ -1,0 +1,221 @@
+{% load static i18n %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta property="og:image" content="{% static 'assets/img/logo_wisdar_network.jpg' %}" />
+  <meta name="description"
+    content="An investment group concerned with communication and technology, working to transfer knowledge, develop expertise and offer consulting services." />
+  <meta name="facebook-domain-verification" content="f8ftgpnmqac2mu443bxsejrfgaxzd3" />
+  <title>Wisdar Network</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="{% static 'assets/css/main.css' %}?ver=2.0">
+  <link rel="stylesheet" href="{% static 'assets/css/menu.css' %}">
+  <link href='https://fonts.googleapis.com/css?family=Audiowide' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Cairo' rel='stylesheet'>
+  <link href="{% static 'assets/css/onepage-scroll.css' %}" rel="stylesheet" type="text/css">
+  <link rel="icon" type="image/png" href="{% static 'assets/img/icon.png' %}" />
+</head>
+
+<body class="index">
+
+  <div id="landscape">
+
+    <div class="ld">
+      <div class="phone"></div>
+      <div class="message">Please rotate your device</br>The page is best viewed in Portrait orientation</div>
+    </div>
+  </div>
+  <div><a class="logolink" href="/"><svg class="logo" xmlns="http://www.w3.org/2000/svg" width="147.966"
+        height="121.887" viewBox="0 0 147.966 121.887">
+        <!-- SVG content here -->
+      </svg>
+    </a>
+  </div>
+  <container>
+    <div id="bg"></div>
+    <div class="btmlogo"><svg xmlns="http://www.w3.org/2000/svg" width="98" height="83" viewBox="0 0 98 83">
+      <!-- SVG content here -->
+      </svg>
+    </div>
+    <a class="arrow" href="#"><svg id="arrow" xmlns="http://www.w3.org/2000/svg" width="41.734" height="24.32"
+        viewBox="0 0 41.734 24.32">
+        <!-- SVG content here -->
+      </svg></a>
+    <div class="menu-wrap">
+
+      <input type="checkbox" class="toggler">
+      <div class="hamburger">
+        <div></div>
+      </div>
+      <div class="menu">
+        <div>
+          <h2 class="bigmenutext">MENU</h2>
+          <div>
+            <ul>
+              <li><a class="menu0 cursor">
+                  <div class="menunumbers">00</div>
+                  <div class="arrowmenu"><img src="{% static 'assets/img/arrowmenu.svg' %}"></div>
+                  <div>Main page</div>
+                </a></li>
+              <li><a class="menu1 cursor">
+                  <div class="menunumbers">01</div>
+                  <div class="arrowmenu"><img src="{% static 'assets/img/arrowmenu.svg' %}"></div>
+                  <div>Fields of expertise</div>
+                </a></li>
+              <li><a class="menu2 cursor">
+                  <div class="menunumbers">02</div>
+                  <div class="arrowmenu"><img src="{% static 'assets/img/arrowmenu.svg' %}"></div>
+                  <div>About us</div>
+                </a></li>
+            </ul>
+            <ul>
+              <li><a class="menu3 cursor">
+                  <div class="menunumbers">03</div>
+                  <div class="arrowmenu"><img src="{% static 'assets/img/arrowmenu.svg' %}"></div>
+                  <div>Our story</div>
+                </a></li>
+            </ul>
+            <ul>
+              <li><a class="menu4 cursor">
+                  <div class="menunumbers">04</div>
+                  <div class="arrowmenu"><img src="{% static 'assets/img/arrowmenu.svg' %}"></div>
+                  <div>Contact us</div>
+                </a></li>
+            </ul> 
+            <ul>
+              <li><a class="menu5 cursor">
+                  <div class="menunumbers">05</div>
+                  <div class="arrowmenu"><img src="{% static 'assets/img/arrowmenu.svg' %}"></div>
+                  <div>Login</div>
+                </a></li>
+            </ul>
+            <div class="mobilelanguage">
+              <div class="active"><a href="">EN</a></div>
+              <div><a href="{% url 'main:profile' %}">My Profile</a></div>
+              <div><a href="{% url 'admin:index' %}">ADMIN</a></div>
+              <div><a href="{% url 'main:docs' %}">Docs</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="language">
+      <div class="active"><a href="">EN</a></div>
+      <div><a href="{% url 'main:profile' %}">My Profile</a></div>
+      <div><a href="{% url 'admin:index' %}">ADMIN</a></div>
+      <div><a href="{% url 'main:docs' %}">Docs</a></div>
+    </div>
+    <div class="main">
+      <section id="page1">
+        <div id="gridbg"></div>
+        <preloader>
+        </preloader>
+        <preloadertitle>
+          <svg viewBox="0 0 641 75" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- SVG content here -->
+          </svg>
+        </preloadertitle>
+
+        <div id="primary">
+          <div id="svg">
+            <svg class="svg svgintro" viewBox="0 0 277.4 232.8" preserveAspectRatio="xMinYMin"
+              shape-rendering="crispEdges" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <!-- SVG content here -->
+            </svg>
+          </div>
+        </div>
+        <div id="titles">
+          <h1 class="digitalcontenttitle">Digital<br /> Content</h1>
+          <h1 class="digitalplatformstitle">Digital<br /> Platforms</h1>
+          <h1 class="fintechtitle">FinTech <br /> Solutions</h1>
+          <h1 class="energysolutionstitle">Energy <br />Solutions</h1>
+        </div>
+      </section>
+      <section id="page2">
+        <div class="content">
+          <h1>Fields of expertise</h1>
+          <div id="fieldsexpert">
+            <div class="fieldcol">
+              <div class="line"></div>
+              <div class="fieldexpert">Creation and translation of digital content</div>
+            </div>
+            <div class="fieldcol">
+              <div class="line"></div>
+              <div class="fieldexpert">Developing, designing and programming digital platforms</div>
+            </div>
+            <div class="fieldcol">
+              <div class="line"></div>
+              <div class="fieldexpert">Developing Financial Technology solutions (FinTech)</div>
+            </div>
+            <div class="fieldcol">
+              <div class="line"></div>
+              <div class="fieldexpert">Developing Alternative Energy solutions</div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="page3">
+        <div class="content">
+          <h1>About us</h1>
+          <div class="parag">
+            <p class="paragtext">
+              <p>An investment group concerned with communication and technology, working to transfer knowledge, develop
+                expertise and offer consulting services.
+                Relying on the branches deployed all over the world, namely Istanbul, Doha, Tunis and London, and its
+                relationships and partnerships with several institutions there, Wisdar Network works to deliver
+                outstanding services to its clients and support them to achieve their communication goals and develop
+                their projects and investments in the MENA region.
+              </p>
+              <div class="overlayparag1"></div>
+          </div>
+        </div>
+      </section>
+      <section id="page4">
+        <div class="content">
+          <h1>Our story</h1>
+          <div class="parag">
+            <p class="paragtext">
+              Wisdar initially invested in translation, for it has an emblematic historical significance. It has always
+              been associated with prosperity and largely contributed to the sustainability of human civilization
+              despite the demise of many. We chose to name our Group "Wisdar" to combine both words, "Wisdom" and "Home"
+              (Dar in Arabic) in reference to the well-known House of Wisdom and the way these libraries managed to
+              transfer and make use of the knowledge produced by ancient civilizations until now. Machines have
+              outplayed Man power, speed and intelligence. However, we believe that human wisdom will always contribute
+              to flourishing and supporting civilization. This is our story, the lens through which we perceive our
+              future.
+            </p>
+            <div class="overlayparag2"></div>
+          </div>
+        </div>
+      </section>
+      <section id="page5">
+       <div class="content">
+         <div class="form-container">
+           <h2 class="form-title">Sign Up</h2>
+           {% include "navigation-fullscreen.html" %}
+
+             Already have an account? <a href="{% url 'main:login' %}">Login here</a>.
+           </p>
+         </div>
+       </div>
+     </section>
+     
+
+
+    </div>
+  </container>
+  <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TweenMax.min.js"></script>
+  <script type="text/javascript" src="{% static 'assets/js/jquery.onepage-scroll.js' %}"></script>
+  <script src="{% static 'assets/js/app.js' %}"></script>
+  <script src="{% static 'assets/js/intro.js' %}"></script>
+</body>
+
+</html>

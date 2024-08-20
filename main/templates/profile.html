@@ -1,0 +1,40 @@
+
+
+{% extends 'base-fullscreen.html' %}
+{% load static %}
+
+{% block content %}
+  <h2>User Profile</h2>
+  
+  <div>
+    <h3>Personal Information</h3>
+    <p><strong>Username:</strong> {{ user.username }}</p>
+    <p><strong>Email:</strong> {{ user.email }}</p>
+    <p><strong>First Name:</strong> {{ user.first_name }}</p>
+    <p><strong>Last Name:</strong> {{ user.last_name }}</p>
+    <p><strong>Date of Birth:</strong> {{ user.date_of_birth }}</p>
+    <p><strong>Phone Number:</strong> {{ user.phone_number }}</p>
+  </div>
+
+  <div>
+    <h3>Profile Picture</h3>
+    {% if user.thumbnail %}
+      <img src="{{ user.thumbnail.url }}" alt="Profile Picture">
+    {% else %}
+      <p>No profile picture uploaded.</p>
+    {% endif %}
+  </div>
+
+  <div>
+    <h3>Tasks</h3>
+    {% if user.tasks.exists %}
+      <ul>
+        {% for task in user.tasks.all %}
+          <li>{{ task.title }} - Completed on {{ task.date_completed }}</li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p>No tasks completed.</p>
+    {% endif %}
+  </div>
+{% endblock %}

@@ -1,0 +1,129 @@
+{% extends 'base-fullscreen.html' %}
+{% load static i18n %}
+{% block title %}docs{% endblock %}
+{% block content %}
+<hr>
+<div class="container my-5">
+    <h1 class="text-center mb-4">Wisdar Project Documentation</h1>
+
+    <section id="introduction" class="mb-5">
+        <h2>1. Introduction</h2>
+        <p><strong>Project Name:</strong> Wisdar</p>
+        <p><strong>Description:</strong> Wisdar is a Django-based web application designed for a news agency. The application is currently under development and features minimal HTML and front-end elements. Future updates will include a more comprehensive interface with additional filtering options.</p>
+        <p><strong>Features:</strong></p>
+        <ul>
+            <li>User authentication with email verification (using django-allauth).</li>
+            <li>Admin interface for content management.</li>
+            <li>Debug toolbar for development purposes.</li>
+            <li>Modular structure with the ability to add new apps.</li>
+        </ul>
+    </section>
+
+    <section id="setup" class="mb-5">
+        <h2>2. Setup and Installation</h2>
+        <h3>Clone the Repository:</h3>
+        <pre><code>git clone https://github.com/projectwisdar/wisdar.git
+cd wisdar</code></pre>
+
+        <h3>Create a Virtual Environment:</h3>
+        <pre><code>python3 -m venv env
+source env/bin/activate  # On Windows use `env\Scripts\activate`</code></pre>
+
+        <h3>Install Dependencies:</h3>
+        <pre><code>pip install -r requirements.txt</code></pre>
+
+        <h3>Environment Variables:</h3>
+        <p>Set up the following environment variables in a .env file or your system environment:</p>
+        <pre><code>DJANGO_SECRET_KEY=your-secret-key
+DJANGO_PRODUCTION=false  # Set to true in production</code></pre>
+
+        <h3>Run Migrations:</h3>
+        <pre><code>python manage.py migrate</code></pre>
+
+        <h3>Create a Superuser:</h3>
+        <pre><code>python manage.py createsuperuser</code></pre>
+
+        <h3>Run the Development Server:</h3>
+        <pre><code>python manage.py runserver</code></pre>
+    </section>
+
+    <section id="configuration" class="mb-5">
+        <h2>3. Configuration</h2>
+        <h3>ASGI and WSGI:</h3>
+        <p>The application supports both ASGI and WSGI interfaces for deployment.</p>
+
+        <h3>Static Files:</h3>
+        <p>Ensure static files are collected in production by running:</p>
+        <pre><code>python manage.py collectstatic</code></pre>
+    </section>
+
+    <section id="deployment" class="mb-5">
+        <h2>4. Deployment on Azure Websites</h2>
+        <h3>Deployment Process:</h3>
+        <p>The Wisdar application will be deployed on Azure Websites for trial purposes, particularly targeting non-developers. We have set up an automated workflow to deploy the application directly from GitHub.</p>
+        <ul>
+            <li>Each time changes are pushed to the GitHub repository, the deployment will automatically trigger, including managing migrations and other necessary tasks.</li>
+        </ul>
+
+        <h3>Accessing the Admin Panel:</h3>
+        <p>After deployment, non-developers will be provided with a username and password to access the Django admin panel. The admin panel can be accessed at <a href="https://your-app-url.azurewebsites.net/admin/" target="_blank">https://your-app-url.azurewebsites.net/admin/</a>.</p>
+        <p>All administrative tasks, including content management, can be performed through this panel. We will handle migrations, user management, and other backend tasks during deployment.</p>
+    </section>
+
+    <section id="installed-apps" class="mb-5">
+        <h2>5. Installed Applications</h2>
+        <p><strong>Django Admin:</strong> For managing the application content.</p>
+        <p><strong>Django Allauth:</strong> For handling user registration, login, and social account integration.</p>
+        <p><strong>Debug Toolbar:</strong> Enabled in development mode for debugging.</p>
+    </section>
+
+    <section id="url-configuration" class="mb-5">
+        <h2>6. URL Configuration</h2>
+        <p>The main URL patterns are defined in <code>urls.py</code>:</p>
+        <ul>
+            <li><code>/admin/</code> for the admin panel.</li>
+            <li><code>/accounts/</code> for user authentication.</li>
+            <li>Root URL includes the main app’s URLs.</li>
+        </ul>
+    </section>
+
+    <section id="email-configuration" class="mb-5">
+        <h2>7. Email Configuration</h2>
+        <p>The application uses SMTP with Office365 for sending emails. Set up the following in <code>settings.py</code>:</p>
+        <pre><code>EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.office365.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'your-email@outlook.com'
+EMAIL_HOST_PASSWORD = 'your-password'
+DEFAULT_FROM_EMAIL = 'your-email@outlook.com'</code></pre>
+    </section>
+
+    <section id="license" class="mb-5">
+        <h2>8. License</h2>
+        <p>Include licensing information here, if applicable.</p>
+    </section>
+
+    <section id="documentation-outline" class="mb-5">
+        <h2>9. Documentation Outline</h2>
+        <ul>
+            <li><strong>Introduction:</strong> Overview of the application and key features.</li>
+            <li><strong>Setup and Installation:</strong> Detailed steps for setting up the project locally, configuration options, and environment variables.</li>
+            <li><strong>Architecture:</strong> Description of the project structure, key components (apps, settings, URL routing).</li>
+            <li><strong>Database and Models:</strong> Overview of the database setup and models used, migration instructions.</li>
+            <li><strong>Authentication:</strong> Detailed explanation of user authentication and registration processes, email verification, and social authentication.</li>
+            <li><strong>Static and Media Files:</strong> How static files are managed and where they are located, instructions for collecting static files in production.</li>
+            <li><strong>Deployment:</strong> Azure Websites Deployment instructions, accessing the Admin Panel, and automated workflow explanation.</li>
+            <li><strong>Testing:</strong> How to run tests, explanation of any test cases provided.</li>
+            <li><strong>Additional Resources:</strong> Links to Django documentation, packages used, etc.</li>
+        </ul>
+    </section>
+
+    <section id="next-steps" class="mb-5">
+        <h2>Next Steps</h2>
+        <p>Outline the next steps or future updates that will be made to the project.</p>
+    </section>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+{% endblock %}

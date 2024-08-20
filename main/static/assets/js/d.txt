@@ -1,0 +1,25 @@
+Folder PATH listing
+Volume serial number is 16E5-5E1A
+C:.
+|   animated-toggle-menu.js
+|   argon-dashboard.js
+|   argon-dashboard.js.map
+|   argon-dashboard.min.js
+|   beyondbuddy.js
+|   d.txt
+|   install.js
+|   multiselect.js
+|   
++---core
+|       bootstrap.bundle.min.js
+|       bootstrap.min.js
+|       popper.min.js
+|       
+\---plugins
+        bootstrap-notify.js
+        Chart.extension.js
+        chartjs.min.js
+        fullcalendar.js
+        perfect-scrollbar.min.js
+        smooth-scrollbar.min.js
+        

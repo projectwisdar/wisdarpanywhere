@@ -1,0 +1,83 @@
+{% load static i18n %}
+{% include 'error.html' %}
+<form action="" method="post" accept-charset="utf-8" class="form" role="form" enctype="multipart/form-data">
+  {% csrf_token %}
+  <div class="mb-3">
+    <label class="form-label">{% trans "Name" %}</label>
+    <div class="row">
+      <div class="col-6">
+        <input type="text" name="first_name" value="{{ requested_user.first_name }}" class="form-control form-control-lg" placeholder="{{ user.first_name }}" required />
+      </div>
+      <div class="col-6">
+        <input type="text" name="last_name" value="{{ requested_user.last_name }}" class="form-control form-control-lg" placeholder="{{ user.last_name }}" required />
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-6">
+      <label class="form-label">{% trans "Email" %}</label>
+      <input type="email" name="email" value="{{ requested_user.email }}" class="form-control form-control-lg" placeholder="{{ user.email }}" required />
+    </div>
+    <div class="col-6">
+      <label class="form-label">{% trans "Phone Number" %}</label>
+      <input type="text" name="phone_number" value="{{ requested_user.phone_number }}" class="form-control form-control-lg" placeholder="{{ user.phone_number }}" required />
+    </div>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">{% trans "Birth Date" %}</label>
+    <div class="row">
+        <div class="col-4">
+            <select name="month" class="form-control form-control-lg" required>
+                {% for month in months %}
+                <option {% if requested_user.date_of_birth.month == forloop.counter %}selected="selected"{% endif %} value="{{ forloop.counter }}">{{ month }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="col-4">
+            <select name="day" class="form-control form-control-lg" required>
+                {% for day in day_range %}
+                <option {% if requested_user.date_of_birth.day == day %}selected="selected"{% endif %} value="{{ day }}">{{ day }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="col-4">
+            <select name="year" class="form-control form-control-lg" required>
+                {% for year in year_range %}
+                <option {% if requested_user.date_of_birth.year == year %}selected="selected"{% endif %} value="{{ year }}">{{ year }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+</div>
+<div class="card mt-4 border-radius-lg p-3">
+  <label class="form-label">{% trans "Password" %}</label>
+  <input type="password" name="password" class="form-control form-control-lg" placeholder="Password" required />
+</div>
+
+<div class="mb-3">
+  <label class="form-label">{% trans "Confirm Password" %}</label>
+  <input type="password" name="confirm_password" class="form-control form-control-lg" placeholder="Confirm Password" required />
+</div>
+
+<div class="row">
+  <div class="col-4 mb-3">
+    <label class="form-label">{% trans "Account Type" %}</label>
+    <select name="group" class="form-control form-control-lg">
+      {% for group in groups %}
+      <option value="{{ group.pk }}" {% if requested_user.group == group %}selected="selected" {% endif %}>{{ group.name }}</option>
+      {% endfor %}
+    </select>
+  </div>
+
+
+  <div class="col-4 mb-3">
+    <label class="form-label">{% trans "Profile Picture" %}</label>
+    <input type="file" name="thumbnail" class="form-control form-control-lg">
+  </div>
+</div>
+
+<div class="text-center">
+  <button class="btn btn btn-outline-primary w-100 my-4 mb-2" type="submit">{% trans "Save" %}</button>
+</div>
+</form>
+

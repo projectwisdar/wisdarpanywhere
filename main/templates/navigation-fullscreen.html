@@ -1,0 +1,85 @@
+{% load static i18n %}
+<nav class="navbar navbar-expand-lg position-absolute top-0 z-index-3 w-100 shadow-none my-3 navbar-transparent mt-4">
+  <div class="container-fluid">
+    <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3 text-white" href="https://www.wisdar.net/tr/" target="_blank">{% trans "Wisdar" %}</a>
+    <div class="language-toggle">
+      <form action="{% url 'main:set_language' %}" method="post" id="language-form">
+          {% csrf_token %}
+          <input name="next" type="hidden" value="{{ request.path }}">
+          <button type="submit" class="flag-button" name="language" value="en">
+              <img src="{% static 'assets\img\icons\flags\gb.svg' %}" width="28" alt="{% trans "English" %}">
+          </button>
+          <button type="submit" class="flag-button" name="language" value="ar">
+              <img src="{% static 'assets\img\icons\flags\dz.svg' %}" width="28" alt="{% trans "Arabic" %}">
+          </button>
+          <button type="submit" class="flag-button" name="language" value="fr">
+              <img src="{% static 'assets\img\icons\flags\fr.svg' %}" width="28" alt="{% trans "French" %}">
+          </button>
+          <button type="submit" class="flag-button" name="language" value="tr">
+              <img src="{% static 'assets\img\icons\flags\tr.svg' %}" width="28" alt="{% trans "Turkish" %}">
+          </button>
+      </form>
+  </div>
+    <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon mt-2">
+        <span class="navbar-toggler-bar bar1"></span>
+        <span class="navbar-toggler-bar bar2"></span>
+        <span class="navbar-toggler-bar bar3"></span>
+      </span>
+    </button>
+    <div class="collapse navbar-collapse" id="navigation">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item">
+          <a class="nav-link me-2" href="/flight/">
+            <i class="fa fa-plane  text-white me-1"></i>{% trans "FLIGHT RESERVATION" %}</a>
+        </li>
+        <li class="nav-item">
+          {% if user.is_authenticated %}
+          <a class="nav-link d-flex align-items-center me-2 active" aria-current="page" href="{% url 'main:home' %}">
+              <i class="fa fa-chart-pie text-white me-1"></i>{% trans "Dashboard" %}</a>
+          {% else %}
+          <a class="nav-link d-flex align-items-center me-2 active" aria-current="page" href="/login/">
+            <i class="fa fa-chart-pie text-white me-1"></i>{% trans "Dashboard" %}</a>
+          {% endif %}
+      </li>
+        <li class="nav-item">
+          <a class="nav-link me-2" href="{% url 'main:profile' %}">
+            <i class="fa fa-user text-white me-1"></i>{% trans "Profile" %}</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link me-2" href="{% url 'main:signup' %}">
+            <i class="fas fa-user-circle text-white me-1"></i>{% trans "Sign Up" %}</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link me-2" href="{% url 'main:logout' %}">
+            <i class="fas fa-exit text-white me-1"></i>{% trans "Logout" %}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  {% block javascript %}
+  <script>
+$(document).ready(function() {
+    $('.flag-button').click(function(event) {
+        // Prevent the form from submitting immediately
+        event.preventDefault();
+
+        // Remove active class from all buttons
+        $('.flag-button').removeClass('active');
+
+        // Add active class to the clicked button
+        $(this).addClass('active');
+
+        // Submit the form after a short delay to allow the animation to complete
+        setTimeout(() => {
+            $(this).closest('form').submit();
+        }, 500); // Adjust delay as needed
+    });
+});
+
+  </script>
+  {% endblock javascript %}
+  
+  
